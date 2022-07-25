@@ -9,7 +9,7 @@ const routes = require('./routes');
 const init = async () => {
   const server = Hapi.server({
     port: 5004,
-    host: 'localhost',
+    host: process.env.NODEV_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     /**
      * Buat menghandle same origin policy
      * nanti baca lagi itu apa
